@@ -5,10 +5,7 @@ import (
 	"github.com/danfelab/youthcongressnepal/server"
 )
 
-func main(){
-	
+func main(){	
 	connect.DB();
-
-	server.StartServer();	
-
+	server.StartServer();
 }

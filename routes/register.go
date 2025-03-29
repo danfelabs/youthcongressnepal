@@ -165,7 +165,5 @@ func RegisterForm(c *fiber.Ctx) error {
 	    }
 	}
 
-	// If OTP is not provided, handle it accordingly
-	return c.SendString("Please enter the OTP to proceed.")       
-   
+	return c.Redirect("/congratulations")    
 }

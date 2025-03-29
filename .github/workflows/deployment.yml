@@ -23,10 +23,14 @@ jobs:
 
         script: |
           cd /home/cb/projects/danfelabs/youthcongressnepal
-
-          docker rm -f youthcongressnepal.org || true
+          
+          # Pull the latest code from the remote repository
+          git pull origin main
+          
+          # Remove any existing container and image
+          docker rm -f youthcongressnepal || true 
           docker rmi youthcongressnepal || true
 
+          # Build and run the Docker container
           docker build -t youthcongressnepal .
           docker run -d --name youthcongressnepal.org -p 8001:8001 youthcongressnepal
-          

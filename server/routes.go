@@ -11,6 +11,7 @@ func Routes(app *fiber.App) {
 
 	app.Get("/register", routes.Register)
 	app.Post("/register", routes.RegisterForm)
+	app.Post("/congratulations", routes.Congratulations)
 
 	app.Get("/login", routes.Login)
 	
