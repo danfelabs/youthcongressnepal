@@ -5,14 +5,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Routes(app *fiber.App) {
+func Routes(app *fiber.App) {	
 
-	app.Get("/", routes.Index)
-
-	app.Get("/register", routes.Register)
-	app.Post("/register", routes.RegisterForm)
-	app.Post("/congratulations", routes.Congratulations)
-
-	app.Get("/login", routes.Login)
-	
+	v1 := app.Group("/v1")
+	{
+		v1.Post("/register", registerV1)
+		v1.Get("/users", getUsersV1)
+	}
 }

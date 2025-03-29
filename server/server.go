@@ -7,17 +7,10 @@ import (
 
 func StartServer() {
 	
-	// Initialize Fiber with the HTML template engine
-	engine := html.New("./public", ".html")
-	app := fiber.New(fiber.Config{
-		Views: engine, // Set the template engine
-	})
+	app := fiber.New()
 
-	Routes(app)
-
-	app.Static("/static", "./static")
-	app.Static("/assets", "./assets")	
+	Routes(app)		
 	
 	// Start the server
-	app.Listen(":8001")
+	app.Listen(":8003")
 }
