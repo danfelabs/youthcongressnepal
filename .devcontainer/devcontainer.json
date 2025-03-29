@@ -1,5 +1,5 @@
 {
-	"name": "youthcongressnepal",	
+	"name": "api.youthcongressnepal.org",	
 	"image": "alpine:3.21.3",
 	"remoteUser": "root",
 	"postCreateCommand": "/bin/sh /workspaces/youthcongressnepal/.devcontainer/setup.sh",
