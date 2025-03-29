@@ -23,14 +23,15 @@ jobs:
 
         script: |
           cd /home/cb/projects/danfelabs/youthcongressnepal
-          
-          # Pull the latest code from the remote repository
+        
+          sudo chown -R $USER:$USER .git
+         
+          git reset --hard  # Ensure local changes are discarded before pulling
+          git clean -fd     # Remove untracked files and directories
           git pull origin main
+         
+          docker rm -f youthcongressnepal.org || true          
+          docker rmi -f youthcongressnepal || true
           
-          # Remove any existing container and image
-          docker rm -f youthcongressnepal || true 
-          docker rmi youthcongressnepal || true
-
-          # Build and run the Docker container
-          docker build -t youthcongressnepal .
+          docker build -t youthcongressnepal .         
           docker run -d --name youthcongressnepal.org -p 8001:8001 youthcongressnepal
